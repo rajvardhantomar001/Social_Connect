@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accommodation Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://montco.today/wp-content/uploads/sites/2/2016/12/photodune-3414091-group-of-business-people-working-at-office-m-1-1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar { 
+    background-color: #333; 
+    padding: 10px; 
+    color: white; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition: background-color 0.3s ease;
+  }
+  .navbar a { 
+    color: white; 
+    text-decoration: none; 
+    margin: 0 10px; 
+    transition: color 0.3s ease;
+  }
+  .navbar a:hover { 
+    text-decoration: underline; 
+    color: #ffc107; /* Yellow on hover */
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffc107; /* Yellow */
+    margin-left: 20px; /* Adjust as needed */
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-items { 
+    margin-right: 20px; /* Adjust as needed */
+  }
+  .join-btn, .feature-btn, .register-btn, .feedback-btn { 
+    background-color: #333; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .join-btn:hover, .feature-btn:hover, .register-btn:hover, .feedback-btn:hover { 
+    background-color: #333; /* Darker blue on hover */
+    transform: translateY(-2px); /* Move button slightly up */
+  }
+        .container {
+            display: flex;
+        }
+        .user-profile {
+            width: 250px;
+            border-right: 1px solid #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .user-profile h2 {
+            margin-top: 0;
+        }
+        .provider-profile {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .grid-container {
+            flex: 1;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-gap: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .provider-image {
+            width: 200px; /* Adjust as needed */
+            height: 220px; /* Adjust as needed */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="logo">Connectify</a>
+        <div class="nav-items">
+          <a href="events.html" class="feature-btn">Events</a>
+          <!-- <a href="UpdateProfile.html" class="register-btn">Update Profile</a> -->
+          <!-- <a href="feedback.html" class="feedback-btn">Feedback</a> -->
+          <a href="index.html" class="join-btn">Logout</a>
+        </div>
+      </div>
+    <div class="container" style="padding-top: 50px;">
+        <div class="user-profile">
+            <h2>User Profile</h2>
+            <!-- Add user profile information here -->
+            <img src="raj.jpeg" alt="User Image">
+            <p>Name: Raj Vardhan Tomar</p>
+            <p>Email: raj@gmail.com</p>
+            <p>Location: Delhi, India</p>
+            <p>Preferences: Chess, Music, and Outings</p>
+        </div>
+        <div class="grid-container">
+            <!-- Profile cards of accommodation providers will be dynamically added here -->
+            <div class="provider-profile">
+                <h3>Person 1</h3>
+                <img src="kritika.jpeg" alt="Provider 1 Image" class="provider-image">
+                <p>Name: Kritika</p>
+                <p>Email: kritika@gmail.com</p>
+                <p>Location: Delhi, India</p>
+                <p>Interests: Music, Reading, and Writing</p>
+            </div>
+            <div class="provider-profile">
+                <h3>Person 2</h3>
+                <img src="deepanshu.jpeg" alt="Provider 2 Image" class="provider-image">
+                <p>Name: Deepanshu Mishra</p>
+                <p>Email: deepanshu@gmail.com</p>
+                <p>Location: Delhi, India</p>
+                <p>Interests: Chess, Cricket, and Music</p>
+            </div>
+            <div class="provider-profile">
+                <h3>Person 3</h3>
+                <img src="chutta.jpeg" alt="Provider 2 Image" class="provider-image">
+                <p>Name: Harsh Raj</p>
+                <p>Email: harsh@gmail.com</p>
+                <p>Location: Delhi, India</p>
+                <p>Interests: Chess, Badmintion, and Table Tennis</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

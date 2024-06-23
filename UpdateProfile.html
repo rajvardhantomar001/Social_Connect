@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Modification</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+            color: #555;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(to right, #F2F6F9, #CED6E0);
+        }
+        h1 {
+            margin-top: 0;
+            font-weight: normal;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            transition: border-color 0.3s ease;
+        }
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        textarea:focus,
+        input[type="file"]:focus {
+            border-color: #4592a0;
+        }
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        button {
+            background-color: #4592a0;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4592a0;
+        }
+        .input-wrapper {
+            position: relative;
+        }
+        .upload-btn {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background-color: #4c9baf;
+            color: white;
+            padding: 6px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .upload-btn:hover {
+            background-color: #455aa0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>User Profile Modification</h1>
+    </header>
+    <div class="container">
+        <form id="profileForm" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+           <label for="location">Location:</label>
+            <input type="text" id="location" name="location">
+            <label for="bio">Preferences:</label>
+            <textarea id="bio" name="bio" rows="4"></textarea>
+            <div class="input-wrapper">
+                <label for="profilePhoto">Profile Photo:</label>
+                <input type="file" id="profilePhoto" name="profilePhoto" style="display: none;">
+                <button type="button" class="upload-btn" onclick="document.getElementById('profilePhoto').click();">Upload</button>
+            </div>
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to populate form fields with user's existing profile data (assuming you have access to user data)
+        function populateProfileForm() {
+            var userData = {
+                name: "John Doe",
+                email: "john@example.com",
+                location: "City, Country",
+                bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+            };
+            document.getElementById("name").value = userData.name;
+            document.getElementById("email").value = userData.email;
+            document.getElementById("location").value = userData.location;
+            document.getElementById("bio").value = userData.bio;
+        }
+
+        // Call populateProfileForm function initially to populate form with existing profile data
+        populateProfileForm();
+
+        // Function to handle form submission
+        document.getElementById("profileForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var formData = new FormData(this);
+            // Assuming you have code here to handle form submission and update user profile data
+            // You can access form data using formData.get("name"), etc.
+            // Once the profile is updated, you can redirect the user to their profile page or any other page
+            alert("Profile updated successfully!");
+            // Redirect example:
+            // window.location.href = "profile.html";
+        });
+    </script>
+</body>
+</html>

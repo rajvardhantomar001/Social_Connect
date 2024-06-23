@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Feedback - Connectify</title>
+<style>
+  body { 
+    font-family: Arial, sans-serif; 
+    background: url('background.jpg') rgba(0, 0, 0, 0.5); /* Adjusted background color */
+    background-size: cover;
+    background-blend-mode: multiply; /* Darken the background */
+    margin: 0;
+    padding: 0;
+  }
+  .navbar { 
+    background-color: #333; 
+    padding: 10px; 
+    color: white; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition: background-color 0.3s ease;
+  }
+  .navbar a { 
+    color: white; 
+    text-decoration: none; 
+    margin: 0 10px; 
+    transition: color 0.3s ease;
+  }
+  .navbar a:hover { 
+    text-decoration: underline; 
+    color: #ffc107; /* Yellow on hover */
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffc107; /* Yellow */
+    margin-left: 20px; /* Adjust as needed */
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-items { 
+    margin-right: 20px; /* Adjust as needed */
+  }
+  .feedback-container {
+    background-color: white;
+    width: 50%;
+    margin: 100px auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+  }
+  .feedback-form label {
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+  }
+  .feedback-form input[type="email"],
+  .feedback-form textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+  .feedback-form button {
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    border: none;
+    border-radius: 5px;
+    cursor: pointer; 
+    transition: background-color 0.3s ease;
+  }
+  .feedback-form button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+</style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html" class="logo">Connectify</a>
+    <div class="nav-items">
+      <a href="features.html" class="feature-btn">Features</a>
+      <a href="register.html" class="register-btn">Register</a>
+      <a href="feedback.html" class="feedback-btn">Feedback</a>
+      <a href="login.html" class="join-btn">Login</a>
+    </div>
+  </div>
+  <div class="feedback-container">
+    <h2>Feedback</h2>
+    <form class="feedback-form">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="feedback">Message:</label>
+      <textarea id="feedback" name="feedback" required></textarea>
+
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </div>
+
+  <script>
+    document.querySelector('.feedback-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+      
+      // Get form data
+      var formData = new FormData(this);
+
+      // Send POST request to submit feedback
+      fetch('http://127.0.0.1:8000/api/submit_feedback', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.feedback_status === 'success') {
+          // Feedback submitted successfully
+          alert('Thank you for your feedback!');
+          // Optionally, redirect to another page after successful feedback submission
+          window.location.href = 'index.html';
+        } else {
+          // Handle other feedback statuses if needed
+          alert('Failed to submit feedback: ' + data.feedback_status);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while submitting feedback');
+      });
+    });
+  </script>
+</body>
+</html>

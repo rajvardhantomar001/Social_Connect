@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connectify</title>
+<style>
+  body { 
+    font-family: Arial, sans-serif; 
+    /* background: url('background.jpg') rgba(0, 0, 0, 0.5); Adjusted background color */
+    background-size: cover;
+    background-blend-mode: multiply; /* Darken the background */
+    margin: 0;
+    padding: 0;
+  }
+  .image-container{
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    /* max-width: 800px; */
+  }
+  .image-box {
+    width: 23%;
+    text-align: center;
+  }
+  .image-box p{
+    margin-left: 50px;
+  }
+  .image-box img {
+    height: 280px;
+    width: 316px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .caption {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .navbar { 
+    background-color: #333; 
+    padding: 10px; 
+    color: white; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition: background-color 0.3s ease;
+  }
+  .navbar a { 
+    color: white; 
+    text-decoration: none; 
+    margin: 0 10px; 
+    transition: color 0.3s ease;
+  }
+  .navbar a:hover { 
+    text-decoration: underline; 
+    color: #ffc107; /* Yellow on hover */
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffc107; /* Yellow */
+    margin-left: 20px; /* Adjust as needed */
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-items { 
+    margin-right: 20px; /* Adjust as needed */
+  }
+  .join-btn, .feature-btn, .register-btn, .feedback-btn { 
+    background-color: #333; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .join-btn:hover, .feature-btn:hover, .register-btn:hover, .feedback-btn:hover { 
+    background-color: #333; /* Darker blue on hover */
+    transform: translateY(-2px); /* Move button slightly up */
+  }
+  .get-started-btn { 
+    background-color: #007bff; 
+    color: white; 
+    padding: 10px 20px; 
+    text-align: center; 
+    text-decoration: none; 
+    display: inline-block; 
+    font-size: 16px; 
+    margin: 4px 2px; 
+    cursor: pointer; 
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  .get-started-btn:hover { 
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-2px); /* Move button slightly up */
+  }
+  .main-content { 
+    text-align: center; 
+    padding: 150px 0 100px; 
+    color: white; 
+    position: relative; 
+    z-index: 1; 
+  }
+  .main-content h1 { font-size: 50px; }
+  .main-content p { font-size: 20px; }
+  .about-section { 
+    background-color: rgba(255, 255, 255, 0.7); 
+    padding: 50px; 
+    border-radius: 10px; 
+    margin: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+  }
+  .heading {
+    text-align: center; /* Align text to center */
+    padding-top: 100px; /* Adjust padding as needed */
+  }
+
+  .about-section h2 { font-size: 30px; color: #333; }
+  .about-section p { font-size: 18px; color: #333; }
+  .plus-icon { position: absolute; bottom: 20px; right: 20px; }
+</style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="index.html" class="logo">Connectify</a>
+    <div class="nav-items">
+      <a href="features.html" class="feature-btn">Features</a>
+      <a href="register.html" class="register-btn">Register</a>
+      <a href="feedback.html" class="feedback-btn">Feedback</a>
+      <a href="login.html" class="join-btn">Login</a>
+    </div>
+  </div>
+  <div class="heading" >
+    <h1>FEATURES</h1>
+    </div>
+  <div class="image-container" style="padding-top: 50px;">
+    <div class="image-box">
+      <img src="f1.jpeg" alt="Image 1" >
+      <p class="caption"> <h2>Connect Interests</h2> Connect individuals with similar interests at a specific location.</p>
+    </div>
+    <div class="image-box">
+      <img src="f2.jpeg" alt="Image 2">
+      <p class="caption"><h2>Registration Page</h2>Register with name, email, and password for access.</p>
+    </div>
+    <div class="image-box">
+      <img src="f3.jpeg" alt="Image 3">
+      <p class="caption"><h2>Profile Update</h2>Update profile with personal details and picture upload option.</p>
+    </div>
+    <div class="image-box">
+      <img src="f4.jpeg" alt="Image 4">
+      <p class="caption"><h2>Nearby People</h2>Find and connect with people nearby based on interests.</p>
+    </div>
+  
+</body>
+</html>

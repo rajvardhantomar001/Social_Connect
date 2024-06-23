@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events Page</title>
+    <style>
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .navbar { 
+    background-color: #333; 
+    padding: 10px; 
+    color: white; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
+    transition: background-color 0.3s ease;
+  }
+  .navbar a { 
+    color: white; 
+    text-decoration: none; 
+    margin: 0 10px; 
+    transition: color 0.3s ease;
+  }
+  .navbar a:hover { 
+    text-decoration: underline; 
+    color: #ffc107; /* Yellow on hover */
+  }
+  .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffc107; /* Yellow */
+    margin-left: 20px; /* Adjust as needed */
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+  .nav-items { 
+    margin-right: 20px; /* Adjust as needed */
+  }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://montco.today/wp-content/uploads/sites/2/2016/12/photodune-3414091-group-of-business-people-working-at-office-m-1-1.jpg');
+            
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+        .post-event {
+            width: 400px;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        .list-events {
+            width: 400px;
+            padding: 20px;
+            margin: 20px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .event-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="#" class="logo">Connectify</a>
+        <div class="nav-items">
+          <a href="events.html" class="feature-btn">Events</a>
+          <!-- <a href="UpdateProfile.html" class="register-btn">Update Profile</a> -->
+          <!-- <a href="feedback.html" class="feedback-btn">Feedback</a> -->
+          <a href="index.html" class="join-btn">Logout</a>
+        </div>
+      </div>
+    <header>
+        <h1>Events Page</h1>
+    </header>
+    <div class="container">
+        <div class="post-event">
+            <h2>Post Event</h2>
+            <form id="eventForm">
+                <label for="eventName">Event Name:</label>
+                <input type="text" id="eventName" name="eventName" required>
+                <label for="eventDescription">Event Description:</label>
+                <textarea id="eventDescription" name="eventDescription" rows="4" required></textarea>
+                <button type="submit">Post Event</button>
+            </form>
+        </div>
+        <div class="list-events">
+            <h2>Events List</h2>
+            <div id="eventsList">
+                <!-- Event items will be dynamically added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample data
+        var events = [
+            { name: "Event 1", description: "Open Chess Tournament on 25/05/2024 in New Delhi."},
+            { name: "Event 2", description: "Speech Competition on 10/05/2024 in New Delhi" },
+        ];
+
+        // Function to display events
+        function displayEvents() {
+            var eventsListDiv = document.getElementById("eventsList");
+            eventsListDiv.innerHTML = "";
+            events.forEach(function(event) {
+                var eventItem = document.createElement("div");
+                eventItem.classList.add("event-item");
+                eventItem.innerHTML = "<h3>" + event.name + "<p>" + event.description + "</p>";
+                eventsListDiv.appendChild(eventItem);
+            });
+        }
+
+        // Call displayEvents function initially to show events
+        displayEvents();
+
+        // Function to handle form submission
+        document.getElementById("eventForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var eventName = document.getElementById("eventName").value;
+            var eventDescription = document.getElementById("eventDescription").value;
+            // Add the new event to the events array
+            events.push({ name: eventName, description: eventDescription });
+            // Clear the form fields
+            document.getElementById("eventName").value = "";
+            document.getElementById("eventDescription").value = "";
+            // Display the updated events list
+            displayEvents();
+        });
+    </script>
+</body>
+</html>
